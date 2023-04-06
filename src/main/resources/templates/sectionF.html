@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="sectionF" >
+  <div class="section_name" style="margin:auto">
+    <h2 style="margin-left: 5vw"> Section F:
+
+    </h2>
+  </div>
+  <div class="hide1" id="secFdropdown">
+    <div class="box">
+      <div class="box-header">
+        <h2 class="box-title">F1: IRCDR</h2>
+      </div>
+      <ul class="list-style-none text-center d-flex flex-wrap"
+          style="margin:auto; justify-content: center; padding: 5px;">
+        <li class="mar-rt-5 hide1 p-3 col-12 col-sm-6 col-md-3" id="hidden-issues1" style="margin: auto;">
+          <div class="box-dropdown-2" id="dropdown_container" style="margin: 10px auto; justify-content: center;">
+            <div class="box-header ">
+              <h1 class="box-title">Stations Under Maintenance</h1>
+            </div>
+
+            <div class="ircdr marjus d-flex flex-wrap" style="padding: 10px;">
+              <span class="locationF1">
+                <span class="loclabelF1 marjus"> Location: </span>
+                <select class="form-control" id="stationF1" required>
+                  <option value="None">None</option>
+                  <option  th:each="station: ${navicPerformanceDetails.sectionF.stations}"
+                           th:value="${station.name+'IRCDR'}"
+                           th:text="${station.name}">
+                  </option>
+                </select>
+              </span>
+              <span class="confirm-btn" style="margin:0px 10px">
+                <button type="button" name="addLocation" class="btn btn-outline-success" id="station-maintenance-btn-F" onclick="fSelectLocation()">Add</button>
+              </span>
+            </div>
+          </div>
+        </li>
+
+        <li class="boxli mar-rt-5 hide1 p-3 col-12 col-sm-6 col-md-3" id="hidden-issues8" style="margin: auto; width:400px;">
+          Stations under maintenance:
+          <div id="test"></div>
+            <table id="Station-display-F">
+              <tbody id="display-head-F1">
+                <tr class="addedStation" th:each="addedStation, rowStat: ${navicPerformanceDetails.sectionF.stations}" th:id="${addedStation.name+'IRCDR'}"  style="display:none; margin: 8px;">
+                  <td hidden><input th:field="${navicPerformanceDetails.sectionF.stations[__${rowStat.index}__].enable}" style="width:30px;"></td>
+                  <td><input disabled style="width:100px" th:field="${navicPerformanceDetails.sectionF.stations[__${rowStat.index}__].name}"> </td>
+                  <td hidden class="idF">0</td>
+                  <td type="button" th:id="${addedStation.name+'RemoveF'}" class="btn btn-primary" onclick="fRemoveLocation(this)">Remove</td>
+                </tr>
+              </tbody>
+          </table>
+        </li>
+      </ul>
+
+
+
+      <!-- Section F2 start -->
+      <div class="box-header">
+        <h2 class="box-title">F2: Issues</h2>
+      </div>
+      <div class="container-Section-E box-row p-0">
+
+
+        <div class="form-group m-2">
+          <label for="issuesTextAreaF2">Issues in last 6 hours: </label>
+          <textarea class="form-control" id="issuesTextAreaF2" rows="4"  onclick="validation('issuesTextAreaF2', 'popupMessage5')"></textarea>
+          <span id="popupMessage5"></span>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>
+</div>
+
+</body>
+</html>

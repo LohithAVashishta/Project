@@ -1,0 +1,31 @@
+server:
+  port : 8085
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost/navic_db
+    username: koushik
+    password: 123
+  jpa :
+    hibernate:
+       ddl-auto : update
+
+    show-sql : true
+    properties:
+      hibernate:
+        format_sql : true
+
+logging:
+  level:
+    org:
+      isro:
+        istrac:
+          gov:
+            in:
+              NavicPerformanceDetails:
+                controller: TRACE
+      springframework: INFO
+      hibernate:
+         type:
+          descriptor:
+            sql : TRACE

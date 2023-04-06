@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SectionA</title>
+</head>
+<body>
+<div th:fragment="sectionA">
+
+    <ul class="list-style-none mt-3" style="padding-left: 0px">
+        <li>
+            <div class="container row">
+                <div class="time col-3">Current Time: <span id="current-time"></span></div>
+                <div class="date col-3">Current Date: <span id="current-date"></span></div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="box-header">
+                    <h1 class="box-title">Please Fill the below details</h1>
+                </div>
+                <div class="row" name="request-approve">
+                      <span class="shiftTeam col-3" style="width:250px; margin:8px">
+                         <label class="loclabel"> Shift Team </label>
+                         <select id="shiftTeam" required>
+                            <option value="" disabled selected>Shift Team</option>
+                            <option value="Ashraf">Ashraf</option>
+                            <option value="Chandan"> Chandan</option>
+                            <option value="Ravi Kiran"> Ravikiran</option>
+                            <option value="Rakesh"> Rakesh</option>
+                         </select>
+                      </span>
+                    <span class="Approver col-3" style="width:200px; margin:8px">
+                         <label class="statlabel"> Approver </label>
+                         <select id="approver" required>
+                            <option value="" disabled selected>Approver</option>
+                            <option value="Manish"> Manish</option>
+                            <option value="Farhana"> Farhana</option>
+                            <option value="Rajath"> Rajath</option>
+                         </select>
+                      </span>
+                    <span class="DOY col-3" style="width:200px; margin:8px">
+                      <label for="doy">DOY:</label>
+                      <input type="number" id="doy" name="doy" style="width:115px;">
+                      </span>
+                    <span class="col-3" style="margin:8px">
+                      <label>ID: indc/ops/daily/DOY/YYYY</label>
+                      </span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div style="margin-top: 10px">
+                <h2 style="margin:auto"> Section A: </h2>
+            </div>
+            <div class="hide1" id="secAdropdown">
+                <div class="box">
+                    <div class="box-header">
+                        <h2 class="box-title"> Communication Status INC1</h2>
+                    </div>
+                    <div class="sectionA p-0">
+
+                            <ul class="list-style-none text-center d-flex flex-wrap"
+                                style="margin:auto; justify-content: center; padding: 5px;">
+                                <li class="boxli col-2 m-3" style="width:13vw;">
+                                    <div>
+                                        <label >Terrestrial Link</label>
+                                    </div>
+                                    <div><input type="radio" class="Radio1" id="secAOkRadio1" name="Radio1" value="OK"
+                                                onchange="showHideDivRadio('Radio1', 'dropdownNotOkterracom', 'display-head1')" th:field="*{sectionA.communicationStatus.baseHealths[0].status}">
+                                        <label for="secAOkRadio1" >OK</label>
+                                        <input type="radio" class="Radio1" id="secANotOkRadio1" name="Radio1" value="NotOK"
+                                               onchange="showHideDivRadio('Radio1', 'dropdownNotOkterracom', 'display-head1')" th:field="*{sectionA.communicationStatus.baseHealths[0].status}">
+                                        <label for="secANotOkRadio1" >NOT OK</label>
+                                    </div>
+                                    <!-- change hide1 to hide -->
+                                    <div class="hide container-grid1" id="dropdownNotOkterracom">
+                                        <div class="box-dropdown-link mb-3" id="dropdown_container">
+                                            <div class="box-header">
+                                                <h1 class="box-title">Please select the location and status of Terrestrial Link</h1>
+                                            </div>
+                                            <div>
+                                                <ul class="list-style-none" style="padding-left: 0px;">
+                                                    <li class="location" style="margin:5px 0px;">
+                                                        <label class="loclabel"> Location: </label>
+                                                        <select id="location1" required>
+                                                            <option value="" disabled selected>Location</option>
+                                                            <option value="Bengaluru"> Bengaluru</option>
+                                                            <option value="Delhi"> Delhi</option>
+                                                            <option value="Lucknow"> Lucknow</option>
+                                                            <option value="Chennai"> Chennai</option>
+                                                            <option value="Hassan"> Hassan</option>
+                                                        </select>
+                                                    </li>
+                                                    <li class="status" style="margin:5px 0px;">
+                                                        <label class="statlabel"> Status: </label>
+                                                        <select id="stat1" required>
+                                                            <option value="" disabled selected>status</option>
+                                                            <option value="Intermittent"> Intermittent</option>
+                                                            <option value="Down"> Down</option>
+                                                        </select>
+                                                    </li>
+                                                    <li class="DOY" style="margin:5px 0px;">
+
+                                                            <label for="doy1">DOY:</label>
+                                                            <input type="date" id="doy1" name="doy" style="width:115px;">
+
+                                                    </li>
+                                                    <li class="confirm-btn" style="margin:5px 0px;">
+                                                        <button class="btn btn-primary" id="terracom-confirm-btn"
+                                                                onclick="displaySelectedValue('location1', 'stat1', 'doy1', 'display-field1')">Confirm</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="boxli col-2 m-3" style="width:13vw;">
+                                    <div>
+                                        <label> Satellite link</label>
+                                    </div>
+                                    <div><input type="radio" class="Radio2" id="secAOkRadio2" name="Radio2" value="OK" onchange="showHideDivRadio('Radio2', 'dropdownNotOkSatcom', 'display-head2')"th:field="*{sectionA.communicationStatus.baseHealths[1].status}">
+                                        <label for="secAOkRadio2">OK</label>
+                                        <input type="radio" class="Radio2" id="secANotOkRadio2" name="Radio2" value="NotOK" onchange="showHideDivRadio('Radio2', 'dropdownNotOkSatcom', 'display-head2')"th:field="*{sectionA.communicationStatus.baseHealths[1].status}">
+                                        <label for="secANotOkRadio2">NOT OK</label>
+                                    </div>
+                                    <!-- change hide1 to hide -->
+                                    <div class="hide container-grid" id="dropdownNotOkSatcom">
+                                        <div class="box-dropdown-link" id="dropdown_container2">
+                                            <div class="box-header">
+                                                <h1 class="box-title">Please select the location and status of satellite Link</h1>
+                                            </div>
+                                            <div>
+                                                <ul class="list-style-none" style="padding-left: 0px;">
+                                                    <li class="location" style="margin:5px 0px; width:230px;">
+                                                        <label class="loclabel"> Location: </label>
+                                                        <select id="location2" required>
+                                                            <option value="" disabled selected>Location</option>
+                                                            <option value="Bengaluru"> Bengaluru</option>
+                                                            <option value="Delhi"> Delhi</option>
+                                                            <option value="Lucknow"> Lucknow</option>
+                                                            <option value="Chennai"> Chennai</option>
+                                                            <option value="Hassan"> Hassan</option>
+                                                        </select>
+                                                    </li>
+                                                    <li class="status" style="margin:5px 0px; width:230px;">
+                                                        <label class="statlabel"> Status: </label>
+                                                        <select id="stat2" required>
+                                                            <option value="" disabled selected>status</option>
+                                                            <option value="Intermittent"> Intermittent</option>
+                                                            <option value="Down"> Down</option>
+                                                        </select>
+                                                    </li>
+                                                    <li class="DOY" style="margin:5px 0px; width:230px;">
+
+                                                            <label for="doy2">DOY:</label>
+                                                            <input type="date" id="doy2" name="doy" style="width:115px;">
+
+                                                    </li>
+                                                    <li class="confirm-btn" style="margin:5px 0px; width:230px;">
+                                                        <button class="btn btn-primary" id="satcom-confirm-btn"
+                                                                onclick="displaySelectedValue('location2', 'stat2', 'doy2', 'display-field2')">Confirm</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="boxli col-2 m-3" style= "width:13vw;">
+                                    <div>
+                                        <label class="OKradio"> INC1-INC2</label>
+                                    </div>
+                                    <div><input type="radio" class="Radio3" id="secAOkRadio3" name="Radio3" value="OK"
+                                                onchange="showHideDivRadio('Radio3', 'dropdownNotOkInc1Inc2','display-head3')" th:field="*{sectionA.communicationStatus.baseHealths[2].status}">
+                                        <label for="secAOkRadio3">OK</label>
+                                        <input type="radio" class="Radio3" id="secANotOkRadio3" name="Radio3" value="NotOK"
+                                               onchange="showHideDivRadio('Radio3', 'dropdownNotOkInc1Inc2', 'display-head3')" th:field="*{sectionA.communicationStatus.baseHealths[2].status}">
+                                        <label for="secANotOkRadio3">NOT OK</label>
+                                    </div>
+                                    <!-- change hide1 to hide -->
+                                    <div class="hide container-grid" id="dropdownNotOkInc1Inc2">
+                                        <div class="box-dropdown-link" id="dropdown_container3">
+                                            <div class="box-header">
+                                                <h1 class="box-title">Please select the location and status of INC1-INC2</h1>
+                                            </div>
+                                            <div>
+                                                <ul class="list-style-none" style="padding-left: 0px;">
+                                                    <li class="location" style="margin:5px 0px; width:230px;">
+                                                        <label class="loclabel"> Location: </label>
+                                                        <select id="location3" required>
+                                                            <option value="" disabled selected>Location</option>
+                                                            <option value="Bengaluru"> Bengaluru</option>
+                                                            <option value="Delhi"> Delhi</option>
+                                                            <option value="Lucknow"> Lucknow</option>
+                                                            <option value="Chennai"> Chennai</option>
+                                                            <option value="Hassan"> Hassan</option>
+                                                        </select>
+                                                    </li>
+                                                    <li class="status" style="margin:5px 0px; width:230px;">
+                                                        <label class="statlabel"> Status: </label>
+                                                        <select id="stat3" required>
+                                                            <option value="" disabled selected>status</option>
+                                                            <option value="Intermittent"> Intermittent</option>
+                                                            <option value="Down"> Down</option>
+                                                        </select>
+                                                    </li>
+                                                    <li class="DOY" style="margin:5px 0px; width:230px;">
+
+                                                            <label for="doy3">DOI:</label>
+                                                            <input type="date" id="doy3" name="doy" style="width:115px;">
+
+                                                    <li class="confirm-btn" style="margin:5px 0px; width:230px;">
+                                                        <button class="btn btn-primary" id="inc1inc2-confirm-btn"
+                                                                onclick="displaySelectedValue('location3', 'stat3', 'doy3', 'display-field3')">Confirm</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- Change hide1 as hide when done -->
+                                <li class="boxli p-2 col-2 m-3" id="hidden-issues" style="width:13vw;">
+                                    Issues:<br>
+                                    <div class="hide" id="display-head1">
+                                        <b>Issues in Terrestrial link</b>
+                                        <div id="display-field1"></div>
+                                    </div>
+                                    <div class="hide" id="display-head2">
+                                        <b> Issues in Satellite link</b>
+                                        <div id="display-field2"></div>
+                                    </div>
+                                    <div class="hide" id="display-head3">
+                                        <b> Issues in INC1-INC2</b>
+                                        <div id="display-field3"></div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        <div class="box">
+                            <div class="box-header">
+                                <h2 class="box-title"> Communication Status INC2</h2>
+                            </div>
+                            <div class="sectionA p-0">
+
+                                    <ul class="list-style-none text-center d-flex flex-wrap"
+                                        style="margin:auto; justify-content: center; padding: 5px;">
+                                        <li class="boxli col-2 m-3" style="width:13vw;">
+                                            <div>
+                                                <label class="OKradio">Terrestrial Link</label>
+                                            </div>
+                                            <div><input type="radio" class="Radio4" id="secAOkRadio4" name="Radio4" value="OK"
+                                                        onchange="showHideDivRadio('Radio4', 'dropdownNotOkterracom2', 'display-head4')" th:field="*{sectionA.communicationStatus.baseHealths[3].status}">
+                                                <label for="secAOkRadio1">OK</label>
+                                                <input type="radio" class="Radio4" id="secANotOkRadio4" name="Radio4" value="NotOK"
+                                                       onchange="showHideDivRadio('Radio4', 'dropdownNotOkterracom2', 'display-head4')" th:field="*{sectionA.communicationStatus.baseHealths[3].status}">
+                                                <label for="secANotOkRadio1">NOT OK</label>
+                                            </div>
+                                            <!-- change hide1 to hide -->
+                                            <div class="hide container-grid1" id="dropdownNotOkterracom2">
+                                                <div class="box-dropdown-link mb-3" id="dropdown_container4">
+                                                    <div class="box-header">
+                                                        <h1 class="box-title">Please select the location and status of Terrestrial Link</h1>
+                                                    </div>
+                                                    <div>
+                                                        <ul class="list-style-none" style="padding-left: 0px;">
+                                                            <li class="location" style="margin:5px 0px;">
+                                                                <label class="loclabel"> Location: </label>
+                                                                <select id="location4" required>
+                                                                    <option value="" disabled selected>Location</option>
+                                                                    <option value="Bengaluru"> Bengaluru</option>
+                                                                    <option value="Delhi"> Delhi</option>
+                                                                    <option value="Lucknow"> Lucknow</option>
+                                                                    <option value="Chennai"> Chennai</option>
+                                                                    <option value="Hassan"> Hassan</option>
+                                                                </select>
+                                                            </li>
+                                                            <li class="status" style="margin:5px 0px;">
+                                                                <label class="statlabel"> Status: </label>
+                                                                <select id="stat4" required>
+                                                                    <option value="" disabled selected>status</option>
+                                                                    <option value="Intermittent"> Intermittent</option>
+                                                                    <option value="Down"> Down</option>
+                                                                </select>
+                                                            </li>
+                                                            <li class="DOY" style="margin:5px 0px;">
+
+                                                                    <label for="doy1">DOY:</label>
+                                                                    <input type="date" id="doy4" name="doy" style="width:115px;">
+
+                                                            </li>
+                                                            <li class="confirm-btn" style="margin:5px 0px;">
+                                                                <button class="btn btn-primary" id="terracom-confirm-btn2"
+                                                                        onclick="displaySelectedValue('location4', 'stat4', 'doy4', 'display-field4')">Confirm</button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="boxli col-2 m-3" style="width:13vw;">
+                                            <div>
+                                                <label> Satellite link</label>
+                                            </div>
+                                            <div><input type="radio" class="Radio5" id="secAOkRadio5" name="Radio5" value="OK"
+                                                        onchange="showHideDivRadio('Radio5', 'dropdownNotOkSatcom2', 'display-head5')" th:field="*{sectionA.communicationStatus.baseHealths[4].status}">
+                                                <label for="secAOkRadio2">OK</label>
+                                                <input type="radio" class="Radio5" id="secANotOkRadio5" name="Radio5" value="NotOK"
+                                                       onchange="showHideDivRadio('Radio5', 'dropdownNotOkSatcom2', 'display-head5')" th:field="*{sectionA.communicationStatus.baseHealths[4].status}">
+                                                <label for="secANotOkRadio2">NOT OK</label>
+                                            </div>
+                                            <!-- change hide1 to hide -->
+                                            <div class="hide container-grid" id="dropdownNotOkSatcom2">
+                                                <div class="box-dropdown-link" id="dropdown_container5">
+                                                    <div class="box-header">
+                                                        <h1 class="box-title">Please select the location and status of satellite Link</h1>
+                                                    </div>
+                                                    <div>
+                                                        <ul class="list-style-none" style="padding-left: 0px;">
+                                                            <li class="location" style="margin:5px 0px; width:230px;">
+                                                                <label class="loclabel"> Location: </label>
+                                                                <select id="location5" required>
+                                                                    <option value="" disabled selected>Location</option>
+                                                                    <option value="Bengaluru"> Bengaluru</option>
+                                                                    <option value="Delhi"> Delhi</option>
+                                                                    <option value="Lucknow"> Lucknow</option>
+                                                                    <option value="Chennai"> Chennai</option>
+                                                                    <option value="Hassan"> Hassan</option>
+                                                                </select>
+                                                            </li>
+                                                            <li class="status" style="margin:5px 0px; width:230px;">
+                                                                <label class="statlabel"> Status: </label>
+                                                                <select id="stat5" required>
+                                                                    <option value="" disabled selected>status</option>
+                                                                    <option value="Intermittent"> Intermittent</option>
+                                                                    <option value="Down"> Down</option>
+                                                                </select>
+                                                            </li>
+                                                            <li class="DOY" style="margin:5px 0px; width:230px;">
+
+                                                                    <label for="doy5">DOY:</label>
+                                                                    <input type="date" id="doy5" name="doy" style="width:115px;">
+
+                                                            </li>
+                                                            <li class="confirm-btn" style="margin:5px 0px; width:230px;">
+                                                                <button class="btn btn-primary" id="satcom-confirm-btn2"
+                                                                        onclick="displaySelectedValue('location5', 'stat5', 'doy5', 'display-field5')">Confirm</button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="boxli col-2 m-3" style= "width:13vw;">
+                                            <div>
+                                                <label class="OKradio"> INC1-INC2</label>
+                                            </div>
+                                            <div><input type="radio" class="Radio6" id="secAOkRadio6" name="Radio6" value="OK"
+                                                        onchange="showHideDivRadio('Radio6', 'dropdownNotOkInc1Inc2_2','display-head6')" th:field="*{sectionA.communicationStatus.baseHealths[5].status}">
+                                                <label for="secAOkRadio3">OK</label>
+                                                <input type="radio" class="Radio6" id="secANotOkRadio6" name="Radio6" value="NotOK"
+                                                       onchange="showHideDivRadio('Radio6', 'dropdownNotOkInc1Inc2_2', 'display-head6')" th:field="*{sectionA.communicationStatus.baseHealths[5].status}">
+                                                <label for="secANotOkRadio3">NOT OK</label>
+                                            </div>
+                                            <!-- change hide1 to hide -->
+                                            <div class="hide container-grid" id="dropdownNotOkInc1Inc2_2">
+                                                <div class="box-dropdown-link" id="dropdown_container3_2">
+                                                    <div class="box-header">
+                                                        <h1 class="box-title">Please select the location and status of INC1-INC2</h1>
+                                                    </div>
+                                                    <div>
+                                                        <ul class="list-style-none" style="padding-left: 0px;">
+                                                            <li class="location" style="margin:5px 0px; width:230px;">
+                                                                <label class="loclabel"> Location: </label>
+                                                                <select id="location6" required>
+                                                                    <option value="" disabled selected>Location</option>
+                                                                    <option value="Bengaluru"> Bengaluru</option>
+                                                                    <option value="Delhi"> Delhi</option>
+                                                                    <option value="Lucknow"> Lucknow</option>
+                                                                    <option value="Chennai"> Chennai</option>
+                                                                    <option value="Hassan"> Hassan</option>
+                                                                </select>
+                                                            </li>
+                                                            <li class="status" style="margin:5px 0px; width:230px;">
+                                                                <label class="statlabel"> Status: </label>
+                                                                <select id="stat6" required>
+                                                                    <option value="" disabled selected>status</option>
+                                                                    <option value="Intermittent"> Intermittent</option>
+                                                                    <option value="Down"> Down</option>
+                                                                </select>
+                                                            </li>
+                                                            <li class="DOY" style="margin:5px 0px; width:230px;">
+
+                                                                    <label for="doy3">DOI:</label>
+                                                                    <input type="date" id="doy6" name="doy" style="width:115px;">
+
+                                                            </li>
+                                                            <li class="confirm-btn" style="margin:5px 0px; width:230px;">
+                                                                <button class="btn btn-primary" id="inc1inc2-confirm-btn2"
+                                                                        onclick="displaySelectedValue('location6', 'stat6', 'doy6', 'display-field6')">Confirm</button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- Change hide1 as hide when done -->
+                                        <li class="boxli p-2 col-2 m-3" id="hidden-issues2" style="width:13vw;">
+                                            Issues:<br>
+                                            <div class="hide" id="display-head4">
+                                                <b>Issues in Terrestrial link</b>
+                                                <div id="display-field4"></div>
+                                            </div>
+                                            <div class="hide" id="display-head5">
+                                                <b> Issues in Satellite link</b>
+                                                <div id="display-field5"></div>
+                                            </div>
+                                            <div class="hide" id="display-head6">
+                                                <b> Issues in INC1-INC2</b>
+                                                <div id="display-field6"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="mt-3" style="margin-left: 55vw;"> <a href="./SectionB.html" class="btn btn-primary" role="button" aria-pressed="true">Next</a></li>
+    </ul>
+
+
+
+</div>
+</body>
+</html>

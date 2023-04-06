@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:fragment="sectionBNav">
+        <div class="section_name" style="margin:auto">
+            <h2 style="margin-left: 5vw"> Section B:
+
+            </h2>
+        </div>
+        <div class="box">
+        <div>
+            <div class="box-header">
+                <h2 class="box-title"> B1: UERE Stream A(BLR) </h2>
+            </div>
+            <div class="container-Section-B box-row p-0">
+                <ul class="list-style-none text-center d-flex flex-wrap"
+                    style="margin:auto; justify-content: center; padding: 8px;">
+                    <li>
+                        <table id="section-B4-BLRstreamA">
+
+                            <tr>
+                                <td></td>
+                                <td th:each="server, rowStat: ${serverList}" th:text="${serverList[__${rowStat.index}__]}"></td>
+                            </tr>
+                            <tr th:each="satellite, rowStat : ${satelliteList}">
+                                <td th:text="${satelliteList[__${rowStat.index}__]}"></td>
+                                <td>
+                                    <input type="text" style="width:75px" placeholder="uere" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${0+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${0+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${0+ (rowStat.index*4)}__].server}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${0+ (rowStat.index*4)}__].satellite}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${0+ (rowStat.index*4)}__].chain}">
+                                </td>
+                                <td>
+                                    <input  type="text" style="width:75px" placeholder="uere" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${1+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${1+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${1+ (rowStat.index*4)}__].server}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${1+ (rowStat.index*4)}__].satellite}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${1+ (rowStat.index*4)}__].chain}">
+
+                                </td>
+                                <td>
+                                    <input type="text" style="width:75px" placeholder="uere" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${2+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${2+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${2+ (rowStat.index*4)}__].server}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${2+ (rowStat.index*4)}__].satellite}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${2+ (rowStat.index*4)}__].chain}">
+                                </td>
+                                <td>
+                                    <input type="text" style="width:75px" placeholder="uere" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${3+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${3+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${3+ (rowStat.index*4)}__].server}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${3+ (rowStat.index*4)}__].satellite}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsABlr[__${3+ (rowStat.index*4)}__].chain}">
+                                </td>
+                            </tr>
+
+                        </table>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+
+        <!-- Section B4 Stream B BLR -->
+        <div>
+            <div class="box-header">
+                <h2 class="box-title"> B2: UERE Stream B(BLR) </h2>
+            </div>
+            <div class="container-Section-B box-row p-0">
+                <ul class="list-style-none text-center d-flex flex-wrap"
+                    style="margin:auto; justify-content: center; padding: 8px;">
+                    <li>
+                        <table id="section-B4-BLRstreamB">
+                            <tr>
+                                <td></td>
+                                <td th:each="server, rowStat: ${serverList}" th:text="${serverList[__${rowStat.index}__]}"></td>
+                            </tr>
+                            <tr th:each="satellite, rowStat : ${satelliteList}">
+                                <td th:text="${satelliteList[__${rowStat.index}__]}"></td>
+                                <td>
+                                    <input type="text" style="width:75px" placeholder="uere" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${0+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${0+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${0+ (rowStat.index*4)}__].server}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${0+ (rowStat.index*4)}__].satellite}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${0+ (rowStat.index*4)}__].chain}">
+                                </td>
+                                <td>
+                                    <input  type="text" style="width:75px" placeholder="uere" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${1+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${1+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${1+ (rowStat.index*4)}__].server}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${1+ (rowStat.index*4)}__].satellite}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${1+ (rowStat.index*4)}__].chain}">
+
+                                </td>
+                                <td>
+                                    <input type="text" style="width:75px" placeholder="uere" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${2+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${2+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${2+ (rowStat.index*4)}__].server}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${2+ (rowStat.index*4)}__].satellite}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${2+ (rowStat.index*4)}__].chain}">
+                                </td>
+                                <td>
+                                    <input type="text" style="width:75px" placeholder="uere" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${3+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${3+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${3+ (rowStat.index*4)}__].server}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${3+ (rowStat.index*4)}__].satellite}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBBlr[__${3+ (rowStat.index*4)}__].chain}">
+                                </td>
+                            </tr>
+
+
+                        </table>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- Section B4 Stream A LCK -->
+        <div>
+            <div class="box-header">
+                <h2 class="box-title"> B3: UERE Stream A(LCK) </h2>
+            </div>
+            <div class="container-Section-B box-row p-0">
+                <ul class="list-style-none text-center d-flex flex-wrap"
+                    style="margin:auto; justify-content: center; padding: 8px;">
+                    <li>
+                        <table id="section-B4-LCKstreamA">
+                            <tr>
+                                <td></td>
+                                <td th:each="server, rowStat: ${serverList}" th:text="${serverList[__${rowStat.index}__]}"></td>
+                            </tr>
+                            <tr th:each="satellite, rowStat : ${satelliteList}">
+                                <td th:text="${satelliteList[__${rowStat.index}__]}"></td>
+                                <td>
+                                    <input type="text" style="width:75px" placeholder="uere" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${0+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${0+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${0+ (rowStat.index*4)}__].server}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${0+ (rowStat.index*4)}__].satellite}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${0+ (rowStat.index*4)}__].chain}">
+                                </td>
+                                <td>
+                                    <input  type="text" style="width:75px" placeholder="uere" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${1+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${1+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${1+ (rowStat.index*4)}__].server}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${1+ (rowStat.index*4)}__].satellite}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${1+ (rowStat.index*4)}__].chain}">
+
+                                </td>
+                                <td>
+                                    <input type="text" style="width:75px" placeholder="uere" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${2+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${2+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${2+ (rowStat.index*4)}__].server}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${2+ (rowStat.index*4)}__].satellite}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${2+ (rowStat.index*4)}__].chain}">
+                                </td>
+                                <td>
+                                    <input type="text" style="width:75px" placeholder="uere" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${3+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${3+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${3+ (rowStat.index*4)}__].server}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${3+ (rowStat.index*4)}__].satellite}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsALck[__${3+ (rowStat.index*4)}__].chain}">
+                                </td>
+                            </tr>
+
+                        </table>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+
+        <!-- Section B4 Stream B LCK -->
+        <div>
+            <div class="box-header">
+                <h2 class="box-title"> B4: UERE Stream B(LCK) </h2>
+            </div>
+            <div class="container-Section-B box-row p-0">
+                <ul class="list-style-none text-center d-flex flex-wrap"
+                    style="margin:auto; justify-content: center; padding: 8px;">
+                    <li>
+                        <table id="section-B4-LCKstreamB">
+                            <tr>
+                                <td></td>
+                                <td th:each="server, rowStat: ${serverList}" th:text="${serverList[__${rowStat.index}__]}"></td>
+                            </tr>
+                            <tr th:each="satellite, rowStat : ${satelliteList}">
+                                <td th:text="${satelliteList[__${rowStat.index}__]}"></td>
+                                <td>
+                                    <input type="text" style="width:75px" placeholder="uere" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${0+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${0+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${0+ (rowStat.index*4)}__].server}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${0+ (rowStat.index*4)}__].satellite}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${0+ (rowStat.index*4)}__].chain}">
+                                </td>
+                                <td>
+                                    <input  type="text" style="width:75px" placeholder="uere" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${1+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${1+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${1+ (rowStat.index*4)}__].server}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${1+ (rowStat.index*4)}__].satellite}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${1+ (rowStat.index*4)}__].chain}">
+
+                                </td>
+                                <td>
+                                    <input type="text" style="width:75px" placeholder="uere" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${2+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${2+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${2+ (rowStat.index*4)}__].server}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${2+ (rowStat.index*4)}__].satellite}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${2+ (rowStat.index*4)}__].chain}">
+                                </td>
+                                <td>
+                                    <input type="text" style="width:75px" placeholder="uere" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${3+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${3+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${3+ (rowStat.index*4)}__].server}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${3+ (rowStat.index*4)}__].satellite}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.uereMeasurementsBLck[__${3+ (rowStat.index*4)}__].chain}">
+                                </td>
+                            </tr>
+
+                        </table>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- Section user position B5, B6, B7, B8 -->
+        <div>
+            <div class="box-header">
+                <h2 class="box-title"> User Position</h2>
+            </div>
+            <div class="container-Section-B box-row p-0">
+                <ul class="list-style-none text-center d-flex flex-wrap"
+                    style="margin:auto; justify-content: center; padding: 8px;">
+                    <li>
+                        <table id="table-user-position">
+
+                            <tr>
+                                <td></td>
+                                <td th:each="server, rowStat: ${serverList}" th:text="${serverList[__${rowStat.index}__]}"></td>
+                            </tr>
+                            <tr th:each="location, rowStat : ${locationList}">
+                                <td th:text="${locationList[__${rowStat.index}__]}"></td>
+                                <td>
+                                    <input type="text" style="width:75px" placeholder="" th:field="${navicPerformanceDetails.sectionB.userPositionMeasurements[__${0+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.userPositionMeasurements[__${0+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.userPositionMeasurements[__${0+ (rowStat.index*4)}__].server}">
+                                </td>
+                                <td>
+                                    <input  type="text" style="width:75px" placeholder="" th:field="${navicPerformanceDetails.sectionB.userPositionMeasurements[__${1+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.userPositionMeasurements[__${1+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.userPositionMeasurements[__${1+ (rowStat.index*4)}__].server}">
+                                </td>
+                                <td>
+                                    <input  type="text" style="width:75px" placeholder="" th:field="${navicPerformanceDetails.sectionB.userPositionMeasurements[__${2+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.userPositionMeasurements[__${2+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.userPositionMeasurements[__${2+ (rowStat.index*4)}__].server}">
+                                </td>
+                                <td>
+                                    <input  type="text" style="width:75px" placeholder="" th:field="${navicPerformanceDetails.sectionB.userPositionMeasurements[__${3+ (rowStat.index*4)}__].value}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.userPositionMeasurements[__${3+ (rowStat.index*4)}__].location}">
+                                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.userPositionMeasurements[__${3+ (rowStat.index*4)}__].server}">
+                                </td>
+                            </tr>
+
+                        </table>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section B9 -->
+        <div>
+            <div class="box-header">
+                <h2 class="box-title"> B5: </h2>
+            </div>
+            <div class="container-Section-B box-row p-0">
+                <!--            <ul class="list-style-none text-center d-flex flex-wrap" style="margin:auto; justify-content: center;">-->
+                <!--              <li class="p-3 col-12 col-sm-6 col-md-3"><b>-->
+                <!--                Issues in last 6 hours:</b>-->
+                <!--                <textarea class="form-control" id="issuesTextArea9" rows="4" onclick="validation('issuesTextAreaB9', 'popupMessage2')"></textarea>-->
+                <!--                <span id="popupMessae2"></span>-->
+                <!--              </li>-->
+                <!--            </ul>-->
+                <div class="form-group m-2">
+                    <label for="issuesTextAreaB9">Issues in last 6 hours: </label>
+                    <textarea class="form-control" id="issuesTextAreaB9" rows="4" onclick="validation('issuesTextAreaB9', 'popupMessage2')"></textarea>
+                    <span id="popupMessage2"></span>
+                </div>
+
+            </div>
+        </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

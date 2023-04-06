@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="sectionC">
+    <div class="section_name" style="margin:auto">
+        <h2 style="margin-left: 5vw"> Section C:</h2>
+    </div>
+
+
+    <!-- make hide1 as hide -->
+
+    <div class="hide1" id="secCdropdown">
+        <div class="box">
+            <div class="box-header">
+                <h2 class="box-title"> C1: Parallel Chain</h2>
+            </div>
+
+
+            <div class="container-Section-A box-row p-0">
+
+                    <ul class=" row list-style-none text-center d-flex flex-wrap marjus" style="padding:8px">
+                        <li class="boxli mar-rt-5 col-2" style="padding: 8px;">
+
+                            <div>
+                                <div>
+                                    <label class="parallel-chain"> INC1-SERVER1:  </label>
+                                </div>
+                                <div>
+                                    <input  type="radio" id="inc1ser1Ok" class="inc1ser1" name="inc1ser1" value="OK"
+                                           onchange="radioDiv('inc1ser1', 'textforparallelchain1')" th:field="*{sectionC.parallelChains[0].status}">
+                                    <label for="inc1ser1Ok">OK</label>
+                                    <input  type="radio" id="inc1ser1NotOK" class="inc1ser1" name="inc1ser1" value="NotOK"
+                                           onchange="radioDiv('inc1ser1', 'textforparallelchain1')" th:field="*{sectionC.parallelChains[0].status}">
+                                    <label for="inc1ser1NotOK">Not OK</label>
+                                </div>
+                            </div>
+
+                            <div class="hide" id="textforparallelchain1">
+                                <div class="form-group">
+                      <textarea class="form-control" id="exampleFormControlTextarea5" rows="5"
+                                placeholder="Please mention the issue" th:field="*{sectionC.parallelChains[0].issue}"></textarea>
+                                </div>
+                                <span id="popupMessageinc1ser1"></span>
+                            </div>
+
+                        </li>
+
+                        <li class="boxli mar-rt-5  col-2" style="padding: 8px;">
+
+                            <div>
+                                <div>
+                                    <label class="parallel-chain"> INC1-SERVER2: </label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="inc1ser2Ok" class="inc1ser2" name="inc1ser2"  value="OK"
+                                           onchange="radioDiv('inc1ser2', 'textforparallelchain2')" th:field="*{sectionC.parallelChains[1].status}">
+                                    <label for="inc1ser2Ok">OK</label>
+                                    <input type="radio" id="inc1ser2NotOk" class="inc1ser2" name="inc1ser2" value="NotOK"
+                                           onchange="radioDiv('inc1ser2', 'textforparallelchain2')" th:field="*{sectionC.parallelChains[1].status}">
+                                    <label for="inc1ser2NotOk">Not OK</label>
+                                </div>
+                            </div>
+
+                            <div class="hide" id="textforparallelchain2">
+                                <div class="form-group">
+                      <textarea class="form-control" id="exampleFormControlTextarea6" rows="5"
+                                placeholder="Please mention the issue" th:field="*{sectionC.parallelChains[1].issue}"></textarea>
+                                </div>
+                                <span id="popupMessageinc1ser2"></span>
+                            </div>
+                        </li>
+
+                        <li class="boxli mar-rt-5 col-2" style="padding: 8px;">
+
+                            <div>
+                                <div>
+                                    <label class="parallel-chain "> INC2-SERVER1:</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="inc2ser1Ok" class="inc2ser1" name="inc2ser1"  value="OK"
+                                           onchange="radioDiv('inc2ser1', 'textforparallelchain3')" th:field="*{sectionC.parallelChains[2].status}">
+                                    <label for="inc2ser1Ok">OK</label>
+                                    <input type="radio" id="inc2ser1NotOk" class="inc2ser1" name="inc2ser1"  value="NotOK"
+                                           onchange="radioDiv('inc2ser1', 'textforparallelchain3')" th:field="*{sectionC.parallelChains[2].status}">
+                                    <label for="inc2ser1NotOk">Not OK</label>
+                                </div>
+
+                            </div>
+
+                            <div class="hide" id="textforparallelchain3">
+                                <div class="form-group">
+                      <textarea class="form-control" id="exampleFormControlTextarea7" rows="5"
+                                placeholder="Please mention the issue" th:field="*{sectionC.parallelChains[2].issue}"></textarea>
+                                </div>
+                                <span id="popupmessageinc2ser1"></span>
+                            </div>
+                        </li>
+
+                        <li class="boxli mar-rt-5 col-2" style="padding: 8px;">
+
+                            <div>
+                                <div>
+                                    <label class="parallel-chain"> INC2-SERVER2:</label></div>
+                                <div>
+                                    <input type="radio" id="inc2ser2Ok" class="inc2ser2" name="inc2ser2" value="OK"
+                                           onchange="radioDiv('inc2ser2', 'textforparallelchain4')" th:field="*{sectionC.parallelChains[3].status}">
+                                    <label for="inc2ser2Ok">OK</label>
+                                    <input type="radio" id="inc2ser2NotOk" class="inc2ser2" name="inc2ser2"  value="NotOK"
+                                           onchange="radioDiv('inc2ser2', 'textforparallelchain4')" th:field="*{sectionC.parallelChains[3].status}">
+                                    <label for="inc2ser2NotOk">Not OK</label>
+                                </div>
+                            </div>
+
+                            <div class="hide" id="textforparallelchain4">
+                                <div class="form-group">
+                      <textarea class="form-control" id="exampleFormControlTextarea8" rows="5"
+                                placeholder="Please mention the issue" th:field="*{sectionC.parallelChains[3].issue}"></textarea>
+                                </div>
+                                <span id="popupMessageinc2ser2"></span>
+                            </div>
+                        </li>
+
+                    </ul>
+
+            </div>
+
+            <!-- section C2 -->
+            <div>
+                <div class="box-header">
+                    <h2 class="box-title"> C2:</h2>
+                </div>
+                <div class="container-Section-B box-row p-0">
+                    <ul class="list-style-none text-center marjus p-8">
+                        <li class="p-3 col-12 col-sm-6 col-md-3 boxli marjus">
+                            <label class="irnwtchainA"> IRNWT chain A: </label>
+                            <input type="radio" id="irnwtAOk" class="irnwtA" name="irnwtA" value="OK"
+                                   onchange="radioDiv('irnwtA', 'textforirnwtchainA')" th:field="*{sectionC.Irnwts[0].status}">
+                            <label for="irnwtAOk">OK</label>
+                            <input  type="radio" id="irnwtANotOk" class="irnwtA"  name="irnwtA" value="NotOK"
+                                   onchange="radioDiv('irnwtA', 'textforirnwtchainA')" th:field="*{sectionC.Irnwts[0].status}">
+                            <label for="irnwtANotOk">Not OK</label>
+
+
+                            <div class="hide" id="textforirnwtchainA">
+
+                                <div class="form-group">
+                      <textarea class="form-control" id="exampleFormControlTextarea9" rows="5"
+                                placeholder="Please mention the issue" th:field="*{sectionC.Irnwts[0].issue}"></textarea>
+                                </div>
+                                <span id="popupMessageirnwtchainA"></span>
+
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <!-- section C3 -->
+            <div>
+                <div class="box-header">
+                    <h2 class="box-title"> C3:</h2>
+                </div>
+                <div class="container-Section-C box-row p-0">
+                    <ul class="list-style-none text-center marjus p-8">
+                        <li class="p-3 col-12 col-sm-6 col-md-3 boxli marjus">
+                            <label class="irnwtchainA"> IRNWT chain B: </label>
+                            <input type="radio" id="irnwtBOk" class="irnwtB"  name="irnwtB" value="OK"
+                                   onchange="radioDiv('irnwtB', 'textforirnwtchainB')" th:field="*{sectionC.Irnwts[1].status}">
+                            <label for="irnwtBOk">OK</label>
+                            <input type="radio" id="irnwtBNotOk" class="irnwtB"  name="irnwtB" value="NotOK"
+                                   onchange="radioDiv('irnwtB', 'textforirnwtchainB')" th:field="*{sectionC.Irnwts[1].status}">
+                            <label for="irnwtBNotOk">Not OK</label>
+
+                            <div class="hide" id="textforirnwtchainB">
+
+                                <div class="form-group">
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
+                                placeholder="Please mention the issue" th:field="*{sectionC.Irnwts[1].issue}"></textarea>
+                                </div>
+                                <span id="popupMessageirnwtchainB"></span>
+
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- Section C4 -->
+            <div>
+                <div class="box-header">
+                    <h2 class="box-title"> C4: TWSTFT Health of all Chains</h2>
+<!--                    <p th:text=${navicPerformanceDetails.sectionC.twstftOffsets.size()}></p>-->
+                </div>
+                <div class="section-C4 box-row p-0" id="C4-health">
+                    <ul class="list-style-none text-center d-flex flex-wrap marjus">
+                    <tr th:each="twstft, rowStat : ${navicPerformanceDetails.sectionC.twstftOffsets}">
+                        <td>
+                                <li class="p-1 col-3 boxli">
+                                    <p th:text=${navicPerformanceDetails.sectionC.twstftOffsets[__${rowStat.index}__].name}></p>
+                                    <input type="text" style="width: 60px;" th:field="${navicPerformanceDetails.sectionC.twstftOffsets[__${rowStat.index}__].value}">
+                                </li>
+                        </td>
+                    </tr>
+                    </ul>
+                </div>
+            </div>
+
+
+
+                <div class="box-header">
+                    <h2 class="box-title"> C5: GNSS Offsets </h2>
+                </div>
+                <div class="section-C5 box-row p-0" id="C5-GNSS">
+                    <ul class="list-style-none text-center d-flex flex-wrap marjus">
+                    <tr th:each="gnss, rowStat : ${navicPerformanceDetails.sectionC.gnssOffsets}">
+                        <td>
+                                <li class="boxli col-3 p-1">
+                                    <p th:text=${navicPerformanceDetails.sectionC.gnssOffsets[__${rowStat.index}__].name}></p>
+                                    <input type="text" hidden th:field="${navicPerformanceDetails.sectionC.gnssOffsets[__${rowStat.index}__].name}">
+                                    <input type="text" style="width: 60px;" th:field="${navicPerformanceDetails.sectionC.gnssOffsets[__${rowStat.index}__].value}">
+                                </li>
+
+                        </td>
+                    </tr>
+                    </ul>
+
+                </div>
+            <div class="form-group m-2">
+                <label for="exampleFormControlTextarea1">Issues in last 6 hours: </label>
+                <textarea class="form-control" id="issuesTextAreaC5" rows="4"  onclick="validation('issuesTextAreaC5', 'popupMessage3')"></textarea>
+                <span id="popupMessage3"></span>
+            </div>
+            </div>
+
+
+
+
+
+        </div>
+        </div>
+
+
+
+
+    </div>
+    </div>
+
+
+    <!-- Section C end div-->
+
+
+    <span class="col-1 mt-2"> <a href="./SectionB.html" class="btn btn-primary" role="button" aria-pressed="true">Previous</a> </span>
+    <span class="col-1 mt-2"> <a href="./SectionD.html" class="btn btn-primary" role="button" aria-pressed="true">Next</a> </span>
+
+
+</div>
+
+
+
+<!-- Section C5 -->
+
+</body>
+</html>

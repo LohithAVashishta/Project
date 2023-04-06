@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="sectionH">
+  <div class="section_name" style="margin:auto">
+    <h2 style="margin-left: 5vw"> Section H:
+      <!--                <button type="button" class="plusbutton1" id="+button8" onclick="plusbutton('+button8', 'secHdropdown')">-->
+      <!--                ▲-->
+      <!--            </button>-->
+    </h2>
+  </div>
+  <div class="hide1" id="secHdropdown">
+    <div class="box">
+      <div class="box-header">
+        <h2 class="box-title">H1: Look Angle availability</h2>
+      </div>
+      <ul class="list-style-none text-center marjus p-8">
+        <li>
+          <div style="display:grid; grid-template-columns:auto auto auto auto">
+
+
+
+          <span class="location mar-rt-5 col-md-3">
+            <label class="loclabel"> Location: </label>
+            <select class="form-control" id="locationH" style="width:150px;" required >
+              <option value="None">None</option>
+                  <option  th:each="station: ${navicPerformanceDetails.sectionH.stnLookAngles}"
+                           th:value="${station.location}"
+                           th:text="${station.location}">
+                  </option>
+            </select>
+          </span>
+
+
+            <span class="DOI mar-rt-5 col-md-3">
+
+              <label>Available Till:</label>
+              <input type="datetime-local" id="date-time" name="dateH" style="width:115px;">
+
+          </span>
+
+          </span>
+
+            <span class="confirm-btn  mar-rt-5 col-md-3"  >
+                            <button class="btn btn-primary" id="stn-look-angle-availability"
+                                    onclick="hSelectLocation()">Confirm
+                            </button>
+            </span>
+
+          </div>
+        </li>
+        <li>
+          <div class="list-style-none boxli hide1 p-3 col-sm-6" id="hidden-issues" style="margin: 8px 220.703px">
+            <b>Issues:</b><br>
+            <div class="hide1" id="display-head1">
+              <div id="display-fieldH">
+                <table id="station-displayH">
+                  <tbody>
+                  <tr th:each="station, rowStat: ${navicPerformanceDetails.sectionH.stnLookAngles}" th:id="${navicPerformanceDetails.sectionH.stnLookAngles[__${rowStat.index}__].location+'h'}" style="display:none";>
+                    <td hidden><input type="text" th:field="${navicPerformanceDetails.sectionH.stnLookAngles[__${rowStat.index}__].enable}"></td>
+                    <td><label>Location: </label><input type="text" disabled th:field="${navicPerformanceDetails.sectionH.stnLookAngles[__${rowStat.index}__].location}"></td>
+                    <td><label>AvailableTill:</label><input type="datetime-local" th:field="${navicPerformanceDetails.sectionH.stnLookAngles[__${rowStat.index}__].availableTill}"></td>
+                    <td hidden class="idH">0</td>
+                    <td type="button" th:id="${navicPerformanceDetails.sectionH.stnLookAngles[__${rowStat.index}__].location+'RemoveH'}" class="btn btn-primary mt-4" onclick="hRemoveLocation(this)">Remove</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+
+    </div>
+  </div>
+  <p><input class="btn btn-primary" type="submit" value="Submit"/> <input type="reset" class="btn btn-primary" value="Reset"/></p>
+</div>
+</body>
+</html>

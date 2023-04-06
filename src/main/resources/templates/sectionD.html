@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="sectionD">
+
+  <div class="section_name" style="margin:auto">
+    <h2 style="margin-left: 5vw"> Section D:
+
+    </h2>
+  </div>
+  <div class="hide1" id="secDdropdown">
+    <div class="box">
+      <div class="box-header">
+        <h2 class="box-title"> D1: Schemacs Health</h2>
+      </div>
+
+      <div class="secD1-SchemacsHealth" id="secD1-SchemacsHealth">
+<!--      DO NOT ERASE  -->
+
+          <ul class="list-style-none text-center d-flex flex-wrap marjus">
+            <tr th:each="schemac, rowStat : ${navicPerformanceDetails.sectionD.schemacsHealths}">
+              <td>
+                <li class="boxli col-3 p-1">
+                  <p th:text=${navicPerformanceDetails.sectionD.schemacsHealths[__${rowStat.index}__].name}></p>
+                    <input type="text" style="display:none" th:field="${navicPerformanceDetails.sectionD.schemacsHealths[__${rowStat.index}__].name}">
+                    <input type="radio" th:field="${navicPerformanceDetails.sectionD.schemacsHealths[__${rowStat.index}__].status}" th:class="${navicPerformanceDetails.sectionD.schemacsHealths[__${rowStat.index}__].name}" value="OK" th:onchange="radioDiv([[${navicPerformanceDetails.sectionD.schemacsHealths[__${rowStat.index}__].name}]], [[HiddenDiv__${rowStat.index}__]])"> <label>OK</label>
+                    <input type="radio" th:field="${navicPerformanceDetails.sectionD.schemacsHealths[__${rowStat.index}__].status}" th:class="${navicPerformanceDetails.sectionD.schemacsHealths[__${rowStat.index}__].name}" value="NotOK" th:onchange="radioDiv([[${navicPerformanceDetails.sectionD.schemacsHealths[__${rowStat.index}__].name}]], [[HiddenDiv__${rowStat.index}__]])"> <label>Not OK</label>
+                    <textarea th:field="${navicPerformanceDetails.sectionD.schemacsHealths[__${rowStat.index}__].issue}" th:id="HiddenDiv__${rowStat.index}__" style="display:none;"></textarea>
+                </li>
+              </td>
+            </tr>
+          </ul>
+      </div>
+
+
+      <!-- Section D2 start -->
+      <div class="box-header">
+        <h2 class="box-title"> D2: Command Outage in last 6 hours</h2>
+      </div>
+      <div class="container-Section-D box-row p-0">
+        <div class="form-group m-2">
+          <label for="issuesTextAreaD2">Issues in last 6 hours: </label>
+          <textarea th:field="${navicPerformanceDetails.sectionD.issues}" class="form-control" id="issuesTextAreaD2" rows="4"  onclick="validation('issuesTextAreaD2', 'popupMessage3')"></textarea>
+          <span id="popupMessage3"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+</body>
+</html>

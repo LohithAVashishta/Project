@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="sectionB">
+  <div class="section_name">
+    <h2> Section B:
+
+    </h2>
+  </div>
+
+  <!-- make hide1 as hide after completing the section -->
+  <div class="hide1" id="secBdropdown">
+    <div class="box">
+
+      <!-- Section B1 -->
+      <div class="box-header">
+        <h2 class="box-title"> B1:</h2>
+      </div>
+
+      <div class="container-Section-B box-row" style="padding:8px">
+          <div id="standard-file-status">
+            <ul class="list-style-none text-center d-flex flex-wrap p-0">
+              <tr th:each="file, rowStat: ${navicPerformanceDetails.sectionB.standardFileStatus.availableDocuments}">
+                <td>
+                  <li class="p-3 col-2 boxli marjus">
+                    <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.standardFileStatus.availableDocuments[__${rowStat.index}__].fileName}">
+                    <input type="checkbox" class="form-check-input" th:field="${navicPerformanceDetails.sectionB.standardFileStatus.availableDocuments[__${rowStat.index}__].status}" onchange="updateUncheckedNames(this)">
+                    <label th:text="${navicPerformanceDetails.sectionB.standardFileStatus.availableDocuments[__${rowStat.index}__].fileName}"></label>
+                  </li>
+                </td>
+              </tr>
+            </ul>
+          </div>
+          <label class="marjus" for="uncheckedNames">Files with issues are:</label>
+          <textarea class="form-control marjus" id="uncheckedNames" rows="4" cols="25" disabled style="margin:auto"></textarea>
+
+
+      </div>
+
+
+
+
+
+      <!-- Section B2 -->
+
+      <div>
+        <div class="box-header">
+          <h2 class="box-title"> B2: Storage</h2>
+        </div>
+        <div class="container-Section-B box-row p-0">
+
+
+            <ul class="list-style-none d-flex flex-wrap" style="margin:auto; justify-content: center;">
+
+
+
+              <li class="boxli col-3" style="padding: 8px;">
+
+                <div>
+                  <div>
+                    <label class="storage">172.19.2.145 (ShiftOPs):</label>
+                  </div>
+                  <div>
+                    <input type="text" hidden th:field="${navicPerformanceDetails.sectionB.storageStatus.nsopStorageSet[0].name}">
+                    <input class="shiftOps" type="radio" id="shiftOpsOk" name="shiftOps" value="OK"
+                           onchange="radioDiv('shiftOps', 'textForShiftOps')" th:field="${navicPerformanceDetails.sectionB.storageStatus.nsopStorageSet[0].status}">
+                    <label for="shiftOpsOk">OK</label>
+                    <input class="shiftOps" type="radio" id="shiftOpsNotOk" name="shiftOps" value="NotOK"
+                           onchange="radioDiv('shiftOps', 'textForShiftOps')" th:field="${navicPerformanceDetails.sectionB.storageStatus.nsopStorageSet[0].status}">
+                    <label for="shiftOpsNotOk">Not OK</label>
+                  </div>
+                </div>
+
+                <div class="hide" id="textForShiftOps">
+                  <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
+                                  placeholder="Please mention the issue"></textarea>
+                  </div>
+                  <span id="popupMessageShiftOps"></span>
+                </div>
+
+              </li>
+
+              <li class="boxli col-3" style="padding: 8px;">
+
+                <div>
+                  <div>
+                    <label class="storage"> 172.19.4.15 (NSOP1): </label>
+                  </div>
+                  <div>
+                    <input type="text" hidden value="NSOP1" th:field="${navicPerformanceDetails.sectionB.storageStatus.nsopStorageSet[1].name}">
+                    <input class="nsop1" type="radio" id="nsop1Ok" name="nsop1" value="OK"
+                           onchange="radioDiv('nsop1', 'textForNsop1')" th:field="${navicPerformanceDetails.sectionB.storageStatus.nsopStorageSet[1].status}">
+                    <label for="nsop1Ok">OK</label>
+                    <input class="nsop1" type="radio" id="nsop1NotOk" name="nsop1" value="NotOK"
+                           onchange="radioDiv('nsop1', 'textForNsop1')" th:field="${navicPerformanceDetails.sectionB.storageStatus.nsopStorageSet[1].status}">
+                    <label for="nsop1NotOk">Not OK</label>
+                  </div>
+                </div>
+
+                <div class="hide" id="textForNsop1">
+                  <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea2" rows="5"
+                                  placeholder="Please mention the issue"></textarea>
+                  </div>
+                  <span id="popupMessageNsop1"></span>
+                </div>
+
+              </li>
+
+
+
+
+
+
+              <li class="boxli col-3" style="padding: 8px;">
+
+                <div>
+                  <div>
+                    <label class="storage"> 172.19.7.15 (NSOP2): </label>
+                  </div>
+                  <div>
+                    <input type="text" hidden value="NSOP2" th:field="${navicPerformanceDetails.sectionB.storageStatus.nsopStorageSet[2].name}">
+                    <input class="nsop2" type="radio" id="nsop2Ok" name="nsop2" value="OK"
+                           onchange="radioDiv('nsop2', 'textForNsop2')" th:field="${navicPerformanceDetails.sectionB.storageStatus.nsopStorageSet[2].status}">
+                    <label for="nsop2Ok">OK</label>
+                    <input class="nsop2" type="radio" id="nsop2NotOk" name="nsop2" value="NotOK"
+                           onchange="radioDiv('nsop2', 'textForNsop2')" th:field="${navicPerformanceDetails.sectionB.storageStatus.nsopStorageSet[2].status}">
+                    <label for="nsop2NotOk">Not OK</label>
+                  </div>
+
+                </div>
+
+                <div class="hide" id="textForNsop2">
+                  <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea3" rows="5"
+                                  placeholder="Please mention the issue"></textarea>
+                  </div>
+                  <span id="popupMessageNsop2"></span>
+                </div>
+
+              </li>
+
+
+            </ul>
+
+        </div>
+      </div>
+
+
+
+
+
+      <!-- Section B3 -->
+      <div>
+        <div class="box-header">
+          <h2 class="box-title"> B3: Archival</h2>
+        </div>
+        <div class="container-Section-B box-row p-0" style="margin-top: -1px; margin-left: 30px;">
+
+            <div id="archival-container">
+
+
+              <ul class="list-style-none text-center d-flex flex-wrap">
+                <tr th:each="archival, rowStat: ${navicPerformanceDetails.sectionB.archivalList}" th:id="${navicPerformanceDetails.sectionB.archivalList}">
+                  <li class="col-3 boxli row">
+                    <td>
+                      <label th:text="${navicPerformanceDetails.sectionB.archivalList[__${rowStat.index}__].name}" ></label>
+                      <input hidden type="text" th:field="${navicPerformanceDetails.sectionB.archivalList[__${rowStat.index}__].name}">
+                    </td>
+                    <td>
+                      <select class="form-control col-6" style="width:100px" th:field="${navicPerformanceDetails.sectionB.archivalList[__${rowStat.index}__].status}" required>
+                        <option value="" selected disabled>status</option>
+                        <option value="OK"> OK</option>
+                        <option value="NotOK"> Not OK</option>
+                      </select>
+                    </td>
+                  <td><input type="text" class="form-control col-6" name="secB3" style="width:100px" placeholder="Size" th:field="${navicPerformanceDetails.sectionB.archivalList[__${rowStat.index}__].size}"> </td>
+                  </li>
+                </tr>
+              </ul>
+
+            </div>
+
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
