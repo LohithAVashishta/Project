@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="sectionE">
+  <div class="section_name" style="margin:auto">
+    <h2 style="margin-left: 5vw"> Section E:
+
+    </h2>
+  </div>
+  <div class="hide1" id="secEdropdown">
+    <div class="box">
+      <div class="box-header">
+        <h2 class="box-title">E1: IRIMS</h2>
+      </div>
+      <ul class="list-style-none text-center d-flex flex-wrap"
+          style="margin:auto; justify-content: center; padding: 5px;">
+        <li class="mar-rt-5 hide1 p-3 col-12 col-sm-6 col-md-3" id="hidden-issues1" style="margin: auto;">
+          <div class="box-dropdown-2" id="dropdown_container" style="margin: 10px auto; justify-content: center;">
+            <div class="box-header ">
+              <h1 class="box-title">Stations Under Maintenance</h1>
+            </div>
+
+
+            <div class="irims marjus d-flex flex-wrap" id="irims" style="padding: 10px;">
+                    <span id="locationE1">
+                        <span class="loclabelE1 marjus"> Location: </span>
+                        <select class="form-control" id="stationE1" required>
+                            <option value="none">None</option>
+                            <option  th:each="station: ${navicPerformanceDetails.sectionE.stations}"
+                                     th:value="${station.name}"
+                                     th:text="${station.name}">
+                            </option>
+                        </select>
+                    </span>
+                    <span class="confirm-btn" style="margin:0px 10px">
+                        <button type="button" name="addLocation" class="btn btn-outline-success" id="station-maintenance-btn-E" onclick="selectLocation()">Add</button>
+                    </span>
+            </div>
+          </div>
+        </li>
+
+        <li class="boxli mar-rt-5 hide1 p-3 col-12 col-sm-6 col-md-3" id="hidden-issues2" style="margin: auto; width:400px;">
+          Stations under maintenance:
+            <div id="test"></div>
+                <table id="Station-display">
+                    <tbody id="display-head-E1">
+                      <tr class="addedStation" th:each="addedStation, rowStat: ${navicPerformanceDetails.sectionE.stations}" th:id="${addedStation.name}"  style="display:none; margin: 8px;">
+                          <td hidden><input th:field="${navicPerformanceDetails.sectionE.stations[__${rowStat.index}__].enable}"></td>
+                          <td><input type="text" disabled style="width:100px" th:field="${navicPerformanceDetails.sectionE.stations[__${rowStat.index}__].name}"> </td>
+                          <td hidden class="id">0</td>
+                          <td type="button" th:id="${addedStation.name+'Remove'}" class="btn btn-primary" onclick="removeLocation(this)">Remove</td>
+                      </tr>
+                    </tbody>
+             </table>
+        </li>
+      </ul>
+
+      <!-- Section E2 start -->
+      <div class="box-header">
+        <h2 class="box-title">E2: Issues</h2>
+      </div>
+      <div class="container-Section-E box-row p-0">
+
+        <div class="form-group m-2">
+          <label for="issuesTextAreaE2">Issues in last 6 hours: </label>
+          <textarea th:field="${navicPerformanceDetails.sectionE.issues}" class="form-control" id="issuesTextAreaE2" rows="4"  onclick="validation('issuesTextAreaE2', 'popupMessage4')"></textarea>
+          <span id="popupMessage4"></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</div>
+
+</div>
+
+</body>
+</html>

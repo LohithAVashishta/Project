@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>NavICPerformanceDetails</title>
+</head>
+<body>
+<div id="main_container">
+
+<div th:insert="header :: header"></div>
+<div th:insert="navbar :: navbar"></div>
+<ul class="list-style-none d-flex flex-wrap" style="padding-left: 32px">
+    <li class="col-2">
+        <div th:insert="menu :: menu"></div>
+    </li>
+    <li class="col-9" style="margin-left: 7vw;">
+        <form th:action="@{/performanceFormV1}" th:object="${navicPerformanceDetails}" method="post">
+
+        <div id="sectionA" name="sectionADiv" th:insert="sectionA :: sectionA"></div>
+        <div id="sectionB" name="sectionBDiv" class="hide" th:insert="sectionB :: sectionB"></div>
+        <div id="sectionBNav" name="sectionBNavDiv" class="hide" th:insert="sectionBNav :: sectionBNav"></div>
+        <div id="sectionC" name="sectionCDiv" class="hide" th:insert="sectionC :: sectionC"></div>
+        <div id="sectionD" name="sectionDDiv" class="hide" th:insert="sectionD :: sectionD"></div>
+        <div id="sectionE" name="sectionEDiv" class="hide" th:insert="sectionE :: sectionE"></div>
+        <div id="sectionF" name="sectionFDiv" class="hide" th:insert="sectionF :: sectionF"></div>
+        <div id="sectionG" name="sectionGDiv" class="hide" th:insert="sectionG :: sectionG"></div>
+        <div id="sectionH" name="sectionHDiv" class="hide" th:insert="sectionH :: sectionH"></div>
+
+
+        </form>
+    </li>
+
+</ul>
+<div th:insert="footer :: footer"></div>
+</div>
+
+<!--All sections are in fragment-->
+</body>
+</html>
